@@ -1,15 +1,23 @@
 import speech_recognition as sr
+import say
 
 class getvoice:
-    def getvoice():
+    def get_audio():
         r = sr.Recognizer()
 
         with sr.Microphone() as source:
             print("Listening...")
+            r.adjust_for_ambient_noise(source)
             audio = r.listen(source)
+            query = ""
 
-        said = r.recognize_google(audio)
-        said = said.lower()
-        print(said)
+            try:
+                print("Recognizing...")
+                query = r.recognize_google(audio)
+                query = query.lower()
+                print("You said: ", query)
+            except Exception as e:
+                print("Exception:", str(e))
+                say.speak("I don't hear you.")
 
-        return said
+        return query

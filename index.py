@@ -56,7 +56,7 @@ def flasking():
             with open("listening", "w") as a:
                 a.write("true")
             listening = "true"
-        else:
+        elif (will_listen == "Stop listening"):
             print("22")
             with open("listening", "w") as a:
                 a.write("false")

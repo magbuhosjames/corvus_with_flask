@@ -4,7 +4,7 @@ import time
 from pywintypes import com_error
 
 
-def say(texttosay):
+def speak(texttosay):
     pythoncom.CoInitialize()
     speak = wincl.Dispatch("SAPI.SpVoice")
     try:
@@ -12,6 +12,3 @@ def say(texttosay):
     except com_error:
         time.sleep(1)
         speak.Speak(texttosay)
-        
-        
-

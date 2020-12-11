@@ -9,9 +9,9 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-def corona_updates(said):
+def corona_updates(audio):
 
-    said = said
+    audio = audio
 
     url = 'https://www.worldometers.info/coronavirus/'
     response = requests.get(url)
@@ -36,7 +36,7 @@ def corona_updates(said):
 
     info = 'For more information visit: ' + 'https://www.worldometers.info/coronavirus/#countries'
 
-    if 'world' in said:
+    if 'world' in audio:
         print('World Updates: ')
         print(world_total)
         print(world_deaths)
@@ -45,13 +45,13 @@ def corona_updates(said):
         print(world_closed)
         print(info)
 
-        say.say('World Updates')
-        say.say(world_total)
-        say.say(world_deaths)
-        say.say(world_recovered)
-        say.say(world_active)
-        say.say(world_closed)
-        say.say('For more information visit: worldometers.info')
+        say.speak('World Updates')
+        say.speak(world_total)
+        say.speak(world_deaths)
+        say.speak(world_recovered)
+        say.speak(world_active)
+        say.speak(world_closed)
+        say.speak('For more information visit: worldometers.info')
 
     else:
         country = said
@@ -81,11 +81,11 @@ def corona_updates(said):
         print(recovered)
         print(info)
 
-        say.say(updates)
-        say.say(total)
-        say.say(deaths)
-        say.say(recovered)
-        say.say('For more information visit: worldometers.info')
+        say.speak(updates)
+        say.speak(total)
+        say.speak(deaths)
+        say.speak(recovered)
+        say.speak('For more information visit: worldometers.info')
 
 def scrape_news():
     url = 'https://news.google.com/topstories?hl=en-IN&gl=IN&ceid=IN:en '
@@ -95,21 +95,21 @@ def scrape_news():
     for n in news:
         print(n.text)
         print('\n')
-        say.say(n.text)
+        say.speak(n.text)
     print('For more information visit: ', url)
-    say.say('For more information visit google news')
+    say.speak('For more information visit google news')
 
 def listen_for_flask():
-    said = getvoice.getvoice()
+    audio = getvoice.get_audio()
 
     try:
         try:
             with open("listening", "r") as a:
                 if a.read() == "true":
-                    action = threading.Thread(target=corona_updates, args=[said])
+                    action = threading.Thread(target=corona_updates, args=[audio])
                     action.start()
         except FileNotFoundError as e:
-            action = threading.Thread(target=corona_updates, args=[said])
+            action = threading.Thread(target=corona_updates, args=[audio])
             action.start()
     except UnknownValueError:
         print("Unknown Value Error")
@@ -117,57 +117,57 @@ def listen_for_flask():
 
 def start_listening():
     try:
-        getvoice.getvoice()
+        getvoice.get_audio()
     except UnknownValueError:
         print("Unknown Value Error")
 
 def keep_listening():
     while True:
-        said = getvoice.getvoice()
-        if 'covid' in said:
+        audio = getvoice.get_audio()
+        if 'covid' in audio:
             print('..')
-            words = said.split(' ')
+            words = audio.split(' ')
             corona_updates(words[-1])
 
-        elif 'coronavirus' in said:
+        elif 'coronavirus' in audio:
             ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
             print(ncov)
-            say.say(ncov)
+            say.speak(ncov)
 
-        elif 'news' in said:
+        elif 'news' in audio:
             print('..')
             scrape_news()
 
-        elif 'where is' in said:
+        elif 'where is' in audio:
             print('..')
-            words = said.split('where is')
+            words = audio.split('where is')
             link = str(words[-1])
             link = re.sub(' ', '', link)
-            say.say('Locating')
-            say.say(link)
+            say.speak('Locating')
+            say.speak(link)
             print('Locating ' + words[-1])
             link = f'https://www.google.co.in/maps/place/{link}'
             print(link)
             webbrowser.open(link)
 
-        elif 'who are you' in said:
-            say.say("Hello I am Corvus 101, I am built to provide information about Coronavirus.")
+        elif 'who are you' in audio:
+            say.speak("Hello I am Corvus 101, I am built to provide information about Coronavirus.")
 
-        elif 'time' in said:
+        elif 'time' in audio:
             hours, minutes = gettingtime.time()
-            say.say("The time is " + hours + " " + minutes)
+            say.speak("The time is " + hours + " " + minutes)
 
-        elif 'date' in said:
+        elif 'date' in audio:
             date, month = gettingtime.date()
-            say.say("the date is " + date + " of " + month)
+            say.speak("the date is " + date + " of " + month)
 
-        elif 'search' in said:
-            search_for = said.split("search ")[1]
+        elif 'search' in audio:
+            search_for = audio.split("search ")[1]
             if search_for[:3] == "for":
                 search_for = search_for.replace("for", "", 1)
 
             search_for = quote(search_for)
-            if "google" in said:
+            if "google" in audio:
                 search_for = search_for.replace("in%20google%20", "", 1)
                 search_for = search_for.replace("google%20", "", 1)
                 if search_for.startswith("for%20"):
