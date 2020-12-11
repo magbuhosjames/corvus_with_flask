@@ -1,2 +1,1 @@
-web: gunicorn app:getattr
-app = getattr
+web: gunicorn app:app
