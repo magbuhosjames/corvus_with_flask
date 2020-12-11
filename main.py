@@ -54,7 +54,7 @@ def corona_updates(audio):
         say.speak('For more information visit: worldometers.info')
 
     else:
-        country = said
+        country = audio
 
         url = 'https://www.worldometers.info/coronavirus/country/' + country.lower() + '/'
         response = requests.get(url)
