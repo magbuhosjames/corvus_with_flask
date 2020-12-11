@@ -1,1 +1,1 @@
-web: gunicorn index:getattr.app
+web: gunicorn index:app
