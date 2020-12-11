@@ -1,1 +1,2 @@
-web: gunicorn app:getattr()
+web: gunicorn app:getattr
+app = getattr
