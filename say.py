@@ -1,14 +1,6 @@
-import win32com.client as wincl
-import pythoncom
-import time
-from pywintypes import com_error
-
+import pyttsx3
 
 def speak(texttosay):
-    pythoncom.CoInitialize()
-    speak = wincl.Dispatch("SAPI.SpVoice")
-    try:
-        speak.Speak(texttosay)
-    except com_error:
-        time.sleep(1)
-        speak.Speak(texttosay)
+    engine = pyttsx3.init()
+    engine.say(texttosay)
+    engine.runAndWait()
