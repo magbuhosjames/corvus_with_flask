@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Corvus Assistant</title>
+
+    <link rel="stylesheet" href="static/main.css">
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c">
+        <p class="listen_btn">Start listening</p>
+    </div>
+
+    <form id="listen_form" action="/" method="post">
+        <input type="text" name="listen_form_text" id="listen_form_text">
+        <input type="submit" value="submit" id="listen_form_btn">
+    </form>
+
+</body>
+<script>
+    var listening = {{ listening }}
+</script>
+<script src="static/main.js"></script>
+
+
+</html>
