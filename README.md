@@ -5,8 +5,8 @@
 
 <h3> To run the "main.py" in text mode </h3>
 <ol>
-<li>1. Open a terminal </li>
-<li>2. In terminal, navigate to the directory of the program</li>
-<li>3. Type "main.py --text" //without quotations</li>
-<li>4. You are now running the program in text mode</li>
+<li>Open a terminal </li>
+<li>In terminal, navigate to the directory of the program</li>
+<li>Type "main.py --text" //without quotations</li>
+<li>You are now running the program in text mode</li>
 </ol>
