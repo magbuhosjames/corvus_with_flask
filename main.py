@@ -1,12 +1,13 @@
 from getvoice import getvoice
 import say
-import gettingtime
+import getdatetime
 import webbrowser
 import datetime
 from speech_recognition import UnknownValueError
 import requests
 from bs4 import BeautifulSoup
 import re
+import argparse
 
 def corona_updates(audio):
 
@@ -115,60 +116,78 @@ def welcome():
     say.speak(assistant_name)
     say.speak('How may I help you sir?')
 
+mode = "voice"
+
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    optional = parser.add_argument_group('params')
+    optional.add_argument('-t', '--text', action='store_true', required=False,
+                          help='Enable text mode')
+    arguments = parser.parse_args()
+    return arguments
+
 def task():
-    audio = getvoice.get_audio()
-    if 'covid' in audio:
-        print('Corvus: ')
-        words = audio.split(' ')
-        corona_updates(words[-1])
+    global mode
+    args = get_arguments()
+    welcome()
+    while True:
+        if (args.text):
+            mode = "text"
+            audio = input("Corvus Assistant : ")
+        else:
+            audio = getvoice.get_audio().lower()
+        if 'covid' in audio:
+            print('..')
+            words = audio.split(' ')
+            corona_updates(words[-1])
 
-    elif 'coronavirus' in audio:
-        ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
-        print('Corvus: ')
-        print(ncov)
-        say.speak(ncov)
+        elif 'coronavirus' in audio:
+            ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
+            print('..')
+            print(ncov)
+            say.speak(ncov)
 
-    elif 'virus spread' in audio:
-        vspread = 'The virus that causes COVID-19 most commonly spreads between people who are in close contact with one another .within about 6 feet, or 2 arm lengths. \n It spreads through respiratory droplets or small particles, such as those in aerosols, produced when an infected person coughs, sneezes, sings, talks, or breathes. \n These particles can be inhaled into the nose, mouth, airways, and lungs and cause infection. This is thought to be the main way the virus spreads. \n Droplets can also land on surfaces and objects and be transferred by touch. A person may get COVID-19 by touching the surface or object that has the virus on it and then touching their own mouth, nose, or eyes. Spread from touching surfaces is not thought to be the main way the virus spreads. \nIt is possible that COVID-19 may spread through the droplets and airborne particles that are formed when a person who has COVID-19 coughs, sneezes, sings, talks, or breathes. There is growing evidence that droplets and airborne particles can remain suspended in the air and be breathed in by others, and travel distances beyond 6 feet (for example, during choir practice, in restaurants, or in fitness classes). In general, indoor environments without good ventilation increase this risk.'
-        print('Corvus: ')
-        print(vspread)
-        say.speak(vspread)
+        elif 'virus spread' in audio:
+            vspread = 'The virus that causes COVID-19 most commonly spreads between people who are in close contact with one another .within about 6 feet, or 2 arm lengths. \n It spreads through respiratory droplets or small particles, such as those in aerosols, produced when an infected person coughs, sneezes, sings, talks, or breathes. \n These particles can be inhaled into the nose, mouth, airways, and lungs and cause infection. This is thought to be the main way the virus spreads. \n Droplets can also land on surfaces and objects and be transferred by touch. A person may get COVID-19 by touching the surface or object that has the virus on it and then touching their own mouth, nose, or eyes. Spread from touching surfaces is not thought to be the main way the virus spreads. \nIt is possible that COVID-19 may spread through the droplets and airborne particles that are formed when a person who has COVID-19 coughs, sneezes, sings, talks, or breathes. There is growing evidence that droplets and airborne particles can remain suspended in the air and be breathed in by others, and travel distances beyond 6 feet (for example, during choir practice, in restaurants, or in fitness classes). In general, indoor environments without good ventilation increase this risk.'
+            print('..')
+            print(vspread)
+            say.speak(vspread)
 
-    elif 'news' in audio:
-        print('Corvus: ')
-        scrape_news()
+        elif 'news' in audio:
+            print('..')
+            scrape_news()
 
-    elif 'where is' in audio:
-        print('Corvus: ')
-        words = audio.split('where is')
-        link = str(words[-1])
-        link = re.sub(' ', '', link)
-        say.speak('Locating')
-        say.speak(link)
-        print('Locating ' + words[-1])
-        link = f'https://www.google.co.in/maps/place/{link}'
-        print(link)
-        webbrowser.open(link)
+        elif 'where is' in audio:
+            print('..')
+            words = audio.split('where is')
+            link = str(words[-1])
+            link = re.sub(' ', '', link)
+            say.speak('Locating')
+            say.speak(link)
+            print('Locating ' + words[-1])
+            link = f'https://www.google.co.in/maps/place/{link}'
+            print(link)
+            webbrowser.open(link)
 
-    elif 'who are you' in audio:
-        corvus = 'Hello I am Corvus 101, I am built to provide information about Coronavirus.'
-        print('Corvus: ')
-        print(corvus)
-        say.speak(corvus)
+        elif 'who are you' in audio:
+            corvus = 'Hello I am Corvus 101, I am built to provide information about Coronavirus.'
+            print('..')
+            print(corvus)
+            say.speak(corvus)
 
-    elif 'time' in audio:
-        print('Corvus: ')
-        hours, minutes = gettingtime.time()
-        time = 'The time is ' + hours + ' ' + minutes
-        print(time)
-        say.speak(time)
+        elif 'time' in audio:
+            print('..')
+            hours, minutes = getdatetime.time()
+            time = 'The time is ' + hours + ' ' + minutes
+            print(time)
+            say.speak(time)
 
-    elif 'date' in audio:
-        print('Corvus: ')
-        date, month = gettingtime.date()
-        datenow = 'The date is ' + date + ' of ' + month
-        print(datenow)
-        say.speak(datenow)
+        elif 'date' in audio:
+            print('..')
+            date, month = getdatetime.date()
+            datenow = 'The date is ' + date + ' of ' + month
+            print(datenow)
+            say.speak(datenow)
 
 def start_listening():
     try:
@@ -177,7 +196,6 @@ def start_listening():
         print('Unknown Value Error')
 
 def keep_listening():
-    welcome()
     while True:
         try:
             task()
