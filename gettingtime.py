@@ -1,15 +1,14 @@
 import datetime
 
-
 def time():
     time = datetime.datetime.now().time()
     hours, minutes = time.hour, time.minute
     minutes = str(minutes)
     if hours > 12:
         hours = hours - 12
-        minutes = minutes + " p m"
+        minutes = minutes + " P M"
     else:
-         minutes = minutes + " a m"
+         minutes = minutes + " A M"
     hours = str(hours)
     return hours, minutes
 

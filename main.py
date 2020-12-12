@@ -1,10 +1,9 @@
 from getvoice import getvoice
 import say
 import gettingtime
-import os
 import webbrowser
+import datetime
 from speech_recognition import UnknownValueError
-import threading
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -99,81 +98,94 @@ def scrape_news():
     print('For more information visit: ', url)
     say.speak('For more information visit google news')
 
-def listen_for_flask():
-    audio = getvoice.get_audio()
+def welcome():
+    hour = int(datetime.datetime.now().hour)
+    print('CORVUS ASSISTANT 101')
+    if hour >= 0 and hour < 12:
+        say.speak('Good Morning !')
 
-    try:
-        try:
-            with open("listening", "r") as a:
-                if a.read() == "true":
-                    action = threading.Thread(target=corona_updates, args=[audio])
-                    action.start()
-        except FileNotFoundError as e:
-            action = threading.Thread(target=corona_updates, args=[audio])
-            action.start()
-    except UnknownValueError:
-        print("Unknown Value Error")
-   
+    elif hour >= 12 and hour < 18:
+        say.speak('Good Afternoon!')
+
+    else:
+        say.speak('Good Evening!')
+
+    say.speak('Im here to provide you with essential info about Corona Virus or COVID-19. Here you can request information about the contagion, symptoms, prevention, risks, and case statistics across the world.')
+    assistant_name = ("Corvus 101")
+    say.speak(assistant_name)
+    say.speak('How may I help you sir?')
+
+def task():
+    audio = getvoice.get_audio()
+    if 'covid' in audio:
+        print('Corvus: ')
+        words = audio.split(' ')
+        corona_updates(words[-1])
+
+    elif 'coronavirus' in audio:
+        ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
+        print('Corvus: ')
+        print(ncov)
+        say.speak(ncov)
+
+    elif 'virus spread' in audio:
+        vspread = 'The virus that causes COVID-19 most commonly spreads between people who are in close contact with one another .within about 6 feet, or 2 arm lengths. \n It spreads through respiratory droplets or small particles, such as those in aerosols, produced when an infected person coughs, sneezes, sings, talks, or breathes. \n These particles can be inhaled into the nose, mouth, airways, and lungs and cause infection. This is thought to be the main way the virus spreads. \n Droplets can also land on surfaces and objects and be transferred by touch. A person may get COVID-19 by touching the surface or object that has the virus on it and then touching their own mouth, nose, or eyes. Spread from touching surfaces is not thought to be the main way the virus spreads. \nIt is possible that COVID-19 may spread through the droplets and airborne particles that are formed when a person who has COVID-19 coughs, sneezes, sings, talks, or breathes. There is growing evidence that droplets and airborne particles can remain suspended in the air and be breathed in by others, and travel distances beyond 6 feet (for example, during choir practice, in restaurants, or in fitness classes). In general, indoor environments without good ventilation increase this risk.'
+        print('Corvus: ')
+        print(vspread)
+        say.speak(vspread)
+
+    elif 'news' in audio:
+        print('Corvus: ')
+        scrape_news()
+
+    elif 'where is' in audio:
+        print('Corvus: ')
+        words = audio.split('where is')
+        link = str(words[-1])
+        link = re.sub(' ', '', link)
+        say.speak('Locating')
+        say.speak(link)
+        print('Locating ' + words[-1])
+        link = f'https://www.google.co.in/maps/place/{link}'
+        print(link)
+        webbrowser.open(link)
+
+    elif 'who are you' in audio:
+        corvus = 'Hello I am Corvus 101, I am built to provide information about Coronavirus.'
+        print('Corvus: ')
+        print(corvus)
+        say.speak(corvus)
+
+    elif 'time' in audio:
+        print('Corvus: ')
+        hours, minutes = gettingtime.time()
+        time = 'The time is ' + hours + ' ' + minutes
+        print(time)
+        say.speak(time)
+
+    elif 'date' in audio:
+        print('Corvus: ')
+        date, month = gettingtime.date()
+        datenow = 'The date is ' + date + ' of ' + month
+        print(datenow)
+        say.speak(datenow)
 
 def start_listening():
     try:
-        getvoice.get_audio()
+        task()
     except UnknownValueError:
-        print("Unknown Value Error")
+        print('Unknown Value Error')
 
 def keep_listening():
+    welcome()
     while True:
-        audio = getvoice.get_audio()
-        if 'covid' in audio:
-            print('..')
-            words = audio.split(' ')
-            corona_updates(words[-1])
-
-        elif 'coronavirus' in audio:
-            ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
-            print(ncov)
-            say.speak(ncov)
-
-        elif 'news' in audio:
-            print('..')
-            scrape_news()
-
-        elif 'where is' in audio:
-            print('..')
-            words = audio.split('where is')
-            link = str(words[-1])
-            link = re.sub(' ', '', link)
-            say.speak('Locating')
-            say.speak(link)
-            print('Locating ' + words[-1])
-            link = f'https://www.google.co.in/maps/place/{link}'
-            print(link)
-            webbrowser.open(link)
-
-        elif 'who are you' in audio:
-            say.speak("Hello I am Corvus 101, I am built to provide information about Coronavirus.")
-
-        elif 'time' in audio:
-            hours, minutes = gettingtime.time()
-            say.speak("The time is " + hours + " " + minutes)
-
-        elif 'date' in audio:
-            date, month = gettingtime.date()
-            say.speak("the date is " + date + " of " + month)
-
-        elif 'search' in audio:
-            search_for = audio.split("search ")[1]
-            if search_for[:3] == "for":
-                search_for = search_for.replace("for", "", 1)
-
-            search_for = quote(search_for)
-            if "google" in audio:
-                search_for = search_for.replace("in%20google%20", "", 1)
-                search_for = search_for.replace("google%20", "", 1)
-                if search_for.startswith("for%20"):
-                    search_for = search_for.replace("for%20", "", 1)
-                os.system("start https://www.google.com/search?q=" + search_for)
-
+        try:
+            task()
+        except KeyboardInterrupt:
+            print('Keyboard Interrupt')
+            break
+        except UnknownValueError:
+            print('Unknown Value Error')
 
 if __name__ == "__main__":
     keep_listening()

@@ -4,13 +4,11 @@ import say
 class getvoice:
     def get_audio():
         r = sr.Recognizer()
-
         with sr.Microphone() as source:
-            print("Listening...")
+            print("Corvus is listening...")
             r.adjust_for_ambient_noise(source)
             audio = r.listen(source)
             query = ""
-
             try:
                 print("Recognizing...")
                 query = r.recognize_google(audio)
