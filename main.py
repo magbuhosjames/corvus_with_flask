@@ -46,7 +46,7 @@ def corona_updates(audio):
         print(world_closed)
         print(info)
 
-        say.speak('World Updates')
+        say.speak('WORLD UPDATES')
         say.speak(world_total)
         say.speak(world_deaths)
         say.speak(world_recovered)
@@ -136,12 +136,11 @@ def task():
     else:
         print("Parsing aiml files")
         kernel.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
-        print("Saving brain file: " + BRAIN_FILE)
+        #print("Saving brain file: " + BRAIN_FILE)
         #kernel.saveBrain(BRAIN_FILE) #save the brain_file as brain.dump
 
     global mode
     args = get_arguments()
-    welcome()
     while True:
         if (args.text):
             mode = "text"
@@ -181,6 +180,7 @@ def start_listening():
 def keep_listening():
     while True:
         try:
+            welcome()
             task()
         except KeyboardInterrupt:
             print('Keyboard Interrupt')
