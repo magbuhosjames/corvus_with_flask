@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- basic_chat.aiml -->
+
+<!-- HELLO & HI -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Well, Hello!</li>
+                <li>Hi!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <random>
+                <li>Well, Hello!</li>
+                <li>Hi!</li>
+            </random>
+        </template>
+    </category>
+
+     <category>
+        <pattern>HELLO *</pattern>
+        <template>
+            <random>
+                <li>Well, Hello!</li>
+                <li>Hi!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HI *</pattern>
+        <template>
+            <random>
+                <li>Well, Hello!</li>
+                <li>Hi!</li>
+            </random>
+        </template>
+    </category>
+
+<!-- ABOUT CORVUS -->
+    <category>
+        <pattern>CORVUS</pattern>
+        <template>
+            <random>
+                <li>Yes, How may I help you?</li>
+                <li>What can I do for you?</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO CREATED YOU</pattern>
+        <template>
+            Team No. 3 created me!
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO MADE YOU</pattern>
+        <template>
+            Team No. 3 made me!
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO CREATED CORVUS</pattern>
+        <template>
+            Team No. 3 created me!
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO IS YOUR CREATOR</pattern>
+        <template>
+            Team No. 3 created me!
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>
+            Hello I am Corvus 101, I am built to provide information about Coronavirus.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DOES CORVUS STAND FOR</pattern>
+        <template>
+            CORVUS stands for CoronaVirus
+        </template>
+    </category>
+
+<!-- TIME & DATE-->
+    <category>
+        <pattern>WHAT TIME *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DATE *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT * TIME</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+
+    </category>
+        <category>
+        <pattern>WHAT * DATE</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT * TIME *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT * DATE *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>TIME</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>DATE</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+<!-- WILDCARD -->
+    <category>
+    <pattern>*</pattern>
+    <template>
+        <random>
+           <li>I am sorry, I don't quite understand</li>
+           <li>I don't understand that yet. Maybe you could teach me.</li>
+           <li>I don't know how to answer that. Maybe I could interest you in something else.</li>
+        </random>
+    </template>
+    </category>
+
+<!-- COVID -->
+   <category>
+    <pattern>* COVID * </pattern>
+    <template>
+        <random>
+           <li>Here's the result</li>
+           <li>Here's the update</li>
+        </random>
+    </template>
+    </category>
+
+    <category>
+    <pattern>COVID * </pattern>
+    <template>
+        <random>
+           <li>Here's the result</li>
+           <li>Here's the update</li>
+        </random>
+    </template>
+    </category>
+
+<!-- NEWS -->
+    <category>
+    <pattern>PLAY * NEWS *</pattern>
+    <template>
+        <random>
+           <li>Here's the news</li>
+        </random>
+    </template>
+    </category>
+
+    <category>
+    <pattern>PLAY * NEWS</pattern>
+    <template>
+        <random>
+           <li>Here's the news</li>
+        </random>
+    </template>
+    </category>
+
+    <category>
+    <pattern>PLAY NEWS</pattern>
+    <template>
+            Here's the news
+    </template>
+    </category>
+
+    <category>
+    <pattern>PLAY NEWS *</pattern>
+    <template>
+           Here's the news
+    </template>
+    </category>
+
+    <category>
+    <pattern>NEWS *</pattern>
+    <template>
+           Here's the news
+    </template>
+    </category>
+
+    <category>
+    <pattern>NEWS</pattern>
+    <template>
+           Here's the news
+    </template>
+    </category>
+
+    <category>
+    <pattern>* NEWS</pattern>
+    <template>
+           Here's the news
+    </template>
+    </category>
+
+    <category>
+    <pattern>* NEWS *</pattern>
+    <template>
+           Here's the news
+    </template>
+    </category>
+
+<!-- LOCATION -->
+    <category>
+    <pattern>WHERE IS *</pattern>
+    <template>
+           Wait, I'll find it for you.
+    </template>
+    </category>
+
+</aiml>

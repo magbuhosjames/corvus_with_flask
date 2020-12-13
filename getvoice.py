@@ -1,7 +1,7 @@
 import speech_recognition as sr
 import say
 
-class getvoice:
+class mic_input:
     def get_audio():
         r = sr.Recognizer()
         with sr.Microphone() as source:

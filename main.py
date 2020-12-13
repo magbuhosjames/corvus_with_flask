@@ -1,13 +1,14 @@
-from getvoice import getvoice
-import say
-import getdatetime
-import webbrowser
-import datetime
-from speech_recognition import UnknownValueError
-import requests
 from bs4 import BeautifulSoup
+from speech_recognition import UnknownValueError
+import datetime
+import requests
 import re
 import argparse
+import webbrowser
+import os
+import aiml
+from getvoice import mic_input
+import say
 
 def corona_updates(audio):
 
@@ -37,7 +38,7 @@ def corona_updates(audio):
     info = 'For more information visit: ' + 'https://www.worldometers.info/coronavirus/#countries'
 
     if 'world' in audio:
-        print('World Updates: ')
+        print('WORLD UPDATES: ')
         print(world_total)
         print(world_deaths)
         print(world_recovered)
@@ -75,7 +76,7 @@ def corona_updates(audio):
 
         updates = country + ' Updates: '
 
-        print(updates)
+        print(updates.upper())
         print(total)
         print(deaths)
         print(recovered)
@@ -127,31 +128,33 @@ def get_arguments():
     return arguments
 
 def task():
+    BRAIN_FILE = "brain.dump"
+    kernel = aiml.Kernel()
+    if os.path.exists(BRAIN_FILE):
+        print("Loading from brain file: " + BRAIN_FILE)
+        kernel.loadBrain(BRAIN_FILE)
+    else:
+        print("Parsing aiml files")
+        kernel.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
+        print("Saving brain file: " + BRAIN_FILE)
+        #kernel.saveBrain(BRAIN_FILE) #save the brain_file as brain.dump
+
     global mode
     args = get_arguments()
     welcome()
     while True:
         if (args.text):
             mode = "text"
-            audio = input("Corvus Assistant : ")
+            audio = input("Corvus Assistant : ").lower()
         else:
-            audio = getvoice.get_audio().lower()
+            audio = mic_input.get_audio().lower()
+        ai_speech = kernel.respond(audio)
+        print('..\n', ai_speech)
+        say.speak(ai_speech)
         if 'covid' in audio:
             print('..')
             words = audio.split(' ')
             corona_updates(words[-1])
-
-        elif 'coronavirus' in audio:
-            ncov = 'A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19), is not the same as the coronaviruses that commonly circulate among humans and cause mild illness, like the common cold.'
-            print('..')
-            print(ncov)
-            say.speak(ncov)
-
-        elif 'virus spread' in audio:
-            vspread = 'The virus that causes COVID-19 most commonly spreads between people who are in close contact with one another .within about 6 feet, or 2 arm lengths. \n It spreads through respiratory droplets or small particles, such as those in aerosols, produced when an infected person coughs, sneezes, sings, talks, or breathes. \n These particles can be inhaled into the nose, mouth, airways, and lungs and cause infection. This is thought to be the main way the virus spreads. \n Droplets can also land on surfaces and objects and be transferred by touch. A person may get COVID-19 by touching the surface or object that has the virus on it and then touching their own mouth, nose, or eyes. Spread from touching surfaces is not thought to be the main way the virus spreads. \nIt is possible that COVID-19 may spread through the droplets and airborne particles that are formed when a person who has COVID-19 coughs, sneezes, sings, talks, or breathes. There is growing evidence that droplets and airborne particles can remain suspended in the air and be breathed in by others, and travel distances beyond 6 feet (for example, during choir practice, in restaurants, or in fitness classes). In general, indoor environments without good ventilation increase this risk.'
-            print('..')
-            print(vspread)
-            say.speak(vspread)
 
         elif 'news' in audio:
             print('..')
@@ -168,26 +171,6 @@ def task():
             link = f'https://www.google.co.in/maps/place/{link}'
             print(link)
             webbrowser.open(link)
-
-        elif 'who are you' in audio:
-            corvus = 'Hello I am Corvus 101, I am built to provide information about Coronavirus.'
-            print('..')
-            print(corvus)
-            say.speak(corvus)
-
-        elif 'time' in audio:
-            print('..')
-            hours, minutes = getdatetime.time()
-            time = 'The time is ' + hours + ' ' + minutes
-            print(time)
-            say.speak(time)
-
-        elif 'date' in audio:
-            print('..')
-            date, month = getdatetime.date()
-            datenow = 'The date is ' + date + ' of ' + month
-            print(datenow)
-            say.speak(datenow)
 
 def start_listening():
     try:
