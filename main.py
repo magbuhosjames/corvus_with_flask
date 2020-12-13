@@ -153,7 +153,14 @@ def task():
         if 'covid' in audio:
             print('..')
             words = audio.split(' ')
-            corona_updates(words[-1])
+            try:
+                corona_updates(words[-1])
+            except IndexError:
+                not_found = 'I cant find any results with '+ words[-1]+'. Please check if you spelled it correctly.'
+                print(not_found)
+                say.speak(not_found)
+                pass
+            continue
 
         elif 'news' in audio:
             print('..')

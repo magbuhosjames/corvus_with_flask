@@ -10,9 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4edb23ef-cbad-48cc-a06a-3cedef895230" name="Default Changelist" comment="&quot;updated aiml&quot;">
+    <list default="true" id="4edb23ef-cbad-48cc-a06a-3cedef895230" name="Default Changelist" comment="updated corvus_server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corvus_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/corvus_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/listening" beforeDir="false" afterPath="$PROJECT_DIR$/listening" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607846980306</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated corvus_server">
+      <created>1607847407087</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607847407087</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,7 +194,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;updated aiml&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;updated aiml&quot;" />
+    <MESSAGE value="updated corvus_server" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated corvus_server" />
   </component>
   <component name="WindowStateProjectService">
     <state x="513" y="254" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607815212399">
@@ -201,22 +210,22 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1607828060571" />
-    <state width="1515" height="247" key="GridCell.Tab.0.bottom" timestamp="1607847235967">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom" timestamp="1607857427512">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1607847235967" />
-    <state width="1515" height="247" key="GridCell.Tab.0.center" timestamp="1607847235967">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
+    <state width="1515" height="247" key="GridCell.Tab.0.center" timestamp="1607857427512">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1607847235967" />
-    <state width="1515" height="247" key="GridCell.Tab.0.left" timestamp="1607847235967">
+    <state width="1515" height="247" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
+    <state width="1515" height="247" key="GridCell.Tab.0.left" timestamp="1607857427512">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1607847235967" />
-    <state width="1515" height="247" key="GridCell.Tab.0.right" timestamp="1607847235967">
+    <state width="1515" height="247" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
+    <state width="1515" height="247" key="GridCell.Tab.0.right" timestamp="1607857427512">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1607847235967" />
+    <state width="1515" height="247" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
     <state x="569" y="155" key="RollbackChangesDialog" timestamp="1607663350434">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
@@ -225,10 +234,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="277" y="97" key="SettingsEditor/0.40.1536.824@0.40.1536.824" timestamp="1607846582525" />
-    <state x="361" y="185" key="Vcs.Push.Dialog.v2" timestamp="1607847115168">
+    <state x="361" y="185" key="Vcs.Push.Dialog.v2" timestamp="1607847413912">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="361" y="185" key="Vcs.Push.Dialog.v2/0.40.1536.824@0.40.1536.824" timestamp="1607847115168" />
+    <state x="361" y="185" key="Vcs.Push.Dialog.v2/0.40.1536.824@0.40.1536.824" timestamp="1607847413912" />
     <state x="0" y="40" width="579" height="824" key="find.popup" timestamp="1607779452827">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
