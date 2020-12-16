@@ -1,0 +1,45 @@
+-CORONAVIRUS-
+covid + country --> example: covid cases in philippines
+covid world --> example: covid cases in world
+WHAT IS CORONAVIRUS
+WHAT DISEASES ARE CAUSED BY CORONAVIRUS
+WHY DOES CORONAVIRUS CAUSE SHORTNESS OF BREATH
+WHY AND HOW SHOULD I SEEK MEDICAL ATTENTION
+HOW IS CORONAVIRUS TRANSMITTED
+WHAT SHOULD WE DO IF WE ARE INFECTED BY CORONAVIRUS
+HOW DOES THE VIRUS SPREAD
+<!-- other questions will be added soon	-->
+----
+-TIME-
+what is the time
+time
+tell me the time
+SAME GOES FOR THE DATE --
+----
+LOCATION
+where is + location --> example: where is calapan city
+----
+-PLAYING THE NEWS-
+news
+play news
+play the news
+or just say anything with news word on it
+----
+-OTHER COMMANDS-
+hi
+hello
+corvus
+who are you
+what does corvus stand for
+who created you
+who made you
+who created corvus
+who is your creator
+
+-----------
+<!-- SAY ALL THE COMMANDS WITH NEAT VOICE AND EXACT WORDS -->
+updates will be coming soon
+
+Team No
+
+
