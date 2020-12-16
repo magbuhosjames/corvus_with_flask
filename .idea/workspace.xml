@@ -10,7 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4edb23ef-cbad-48cc-a06a-3cedef895230" name="Default Changelist" comment="updated corvus_server" />
+    <list default="true" id="4edb23ef-cbad-48cc-a06a-3cedef895230" name="Default Changelist" comment="updated corvus_server">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\James\Desktop\corvus_with_flask\static" />
       <recent name="C:\Users\James\Desktop\corvus_with_flask\aiml" />
     </key>
   </component>
@@ -206,6 +212,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="513" y="254" key="#com.intellij.fileTypes.FileTypeChooser/0.40.1536.824@0.40.1536.824" timestamp="1607815212399" />
+    <state x="449" y="188" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607945139144">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state x="449" y="188" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.40.1536.824@0.40.1536.824" timestamp="1607945139144" />
     <state x="499" y="199" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607817852842">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
@@ -214,22 +224,22 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1607828060571" />
-    <state width="1515" height="247" key="GridCell.Tab.0.bottom" timestamp="1607857427512">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom" timestamp="1608116297604">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
-    <state width="1515" height="247" key="GridCell.Tab.0.center" timestamp="1607857427512">
+    <state width="1515" height="247" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1608116297604" />
+    <state width="1515" height="247" key="GridCell.Tab.0.center" timestamp="1608116297604">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
-    <state width="1515" height="247" key="GridCell.Tab.0.left" timestamp="1607857427512">
+    <state width="1515" height="247" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1608116297604" />
+    <state width="1515" height="247" key="GridCell.Tab.0.left" timestamp="1608116297604">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
-    <state width="1515" height="247" key="GridCell.Tab.0.right" timestamp="1607857427512">
+    <state width="1515" height="247" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1608116297604" />
+    <state width="1515" height="247" key="GridCell.Tab.0.right" timestamp="1608116297604">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1515" height="247" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1607857427512" />
+    <state width="1515" height="247" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1608116297604" />
     <state x="569" y="155" key="RollbackChangesDialog" timestamp="1607663350434">
       <screen x="0" y="40" width="1536" height="824" />
     </state>

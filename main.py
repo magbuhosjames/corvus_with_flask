@@ -3,8 +3,8 @@ from speech_recognition import UnknownValueError
 import datetime
 import requests
 import re
-import argparse
 import webbrowser
+import argparse
 import os
 import aiml
 from getvoice import mic_input
@@ -127,7 +127,7 @@ def get_arguments():
     arguments = parser.parse_args()
     return arguments
 
-def task():
+def task(audio):
     BRAIN_FILE = "brain.dump"
     kernel = aiml.Kernel()
     if os.path.exists(BRAIN_FILE):
@@ -136,59 +136,59 @@ def task():
     else:
         print("Parsing aiml files")
         kernel.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
-        #print("Saving brain file: " + BRAIN_FILE)
-        #kernel.saveBrain(BRAIN_FILE) #save the brain_file as brain.dump
+        # print("Saving brain file: " + BRAIN_FILE)
+        # kernel.saveBrain(BRAIN_FILE) #save the brain_file as brain.dump
+    ai_speech = kernel.respond(audio)
+    print('..\n', ai_speech)
+    say.speak(ai_speech)
+    if 'covid' in audio:
+        print('..')
+        words = audio.split(' ')
+        try:
+            corona_updates(words[-1])
+        except IndexError:
+            not_found = 'I cant find any results with '+ words[-1]+'. Please check if you spelled it correctly.'
+            print(not_found)
+            say.speak(not_found)
+            pass
 
+    elif 'news' in audio:
+        print('..')
+        scrape_news()
+
+    elif 'where is' in audio:
+        print('..')
+        words = audio.split('where is')
+        link = str(words[-1])
+        link = re.sub(' ', '', link)
+        say.speak('Locating')
+        say.speak(link)
+        print('Locating ' + words[-1])
+        link = f'https://www.google.co.in/maps/place/{link}'
+        print(link)
+        webbrowser.open(link)
+
+def audio_string():
     global mode
     args = get_arguments()
-    while True:
-        if (args.text):
-            mode = "text"
-            audio = input("Corvus Assistant : ").lower()
-        else:
-            audio = mic_input.get_audio().lower()
-        ai_speech = kernel.respond(audio)
-        print('..\n', ai_speech)
-        say.speak(ai_speech)
-        if 'covid' in audio:
-            print('..')
-            words = audio.split(' ')
-            try:
-                corona_updates(words[-1])
-            except IndexError:
-                not_found = 'I cant find any results with '+ words[-1]+'. Please check if you spelled it correctly.'
-                print(not_found)
-                say.speak(not_found)
-                pass
-            continue
-
-        elif 'news' in audio:
-            print('..')
-            scrape_news()
-
-        elif 'where is' in audio:
-            print('..')
-            words = audio.split('where is')
-            link = str(words[-1])
-            link = re.sub(' ', '', link)
-            say.speak('Locating')
-            say.speak(link)
-            print('Locating ' + words[-1])
-            link = f'https://www.google.co.in/maps/place/{link}'
-            print(link)
-            webbrowser.open(link)
+    if (args.text):
+        mode = "text"
+        audio = input("Corvus Assistant : ").lower()
+    else:
+        audio = mic_input.get_audio().lower()
+    task(audio)
 
 def start_listening():
     try:
-        task()
+        audio_string()
     except UnknownValueError:
         print('Unknown Value Error')
 
 def keep_listening():
+    welcome()
     while True:
         try:
-            welcome()
-            task()
+            audio_string()
         except KeyboardInterrupt:
             print('Keyboard Interrupt')
             break
