@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import main
+import corvus
 import threading
 import time
 
@@ -16,7 +16,7 @@ def listen_properly():
         time.sleep(1/10)
         with open("listening", "r") as a:
             if a.read() == "true":
-                main.start_listening()
+                corvus.start_listening()
             else:
                 pass
 
