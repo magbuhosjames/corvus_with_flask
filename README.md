@@ -1,4 +1,4 @@
-<h2>Corvus Assistant</h2>
+<h1>Corvus Assistant</h1>
 
 <h3> Features </h3>
 <ol>
