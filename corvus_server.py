@@ -11,7 +11,7 @@ with open("listening", "w") as a:
     a.write("false")
 
 def listen_properly():
-    main.welcome()
+    corvus.welcome()
     while True:
         time.sleep(1/10)
         with open("listening", "r") as a:
