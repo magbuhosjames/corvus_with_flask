@@ -135,7 +135,7 @@ def task(audio):
         kernel.loadBrain(BRAIN_FILE)
     else:
         print("Parsing aiml files")
-        kernel.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
+        kernel.bootstrap(learnFiles="aiml/std-startup.xml", commands="load aiml b")
         # print("Saving brain file: " + BRAIN_FILE)
         # kernel.saveBrain(BRAIN_FILE) #save the brain_file as brain.dump
     ai_speech = kernel.respond(audio)

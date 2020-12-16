@@ -9,8 +9,6 @@ with open("threadon", "w") as a:
     a.write("false")
 with open("listening", "w") as a:
     a.write("false")
-with open("opening", "w") as a:
-    a.write("false")
 
 def listen_properly():
     main.welcome()
