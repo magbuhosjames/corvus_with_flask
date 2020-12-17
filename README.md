@@ -13,7 +13,7 @@
 <li>Windows 7 and above (tested only on Windows 10)</li>
 <li>Tested on python 3.6 and 3.6.8 (may support any python 3.6). Doesnt support python 3.7 and above due to modules</li>
 <li>Need python modules
-<p>On the directory folder open CMD and type 'pip install -r requirements.txt' (without quotation) to automatically install modules with pip</p></li>
+<p>On the directory folder, open CMD and type 'pip install -r requirements.txt' (without quotation) to automatically install modules with pip</p></li>
 </ol>
 
 <h3> Installation </h3>
