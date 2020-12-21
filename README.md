@@ -3,7 +3,7 @@
 <h3> Features </h3>
 <ol>
 <li> A web gui to stop and start listening </li>
-<li>Run on chat mode at main.py</li>
+<li>Run on chat mode at corvus.py</li>
 <li> Ask for date and time </li>
 </ol>
 
@@ -20,7 +20,7 @@
 <h3> Installation </h3>
 
 <ol>
-<li> Run the "main.py" for continues listening with no gui </li>
+<li> Run the "corvus.py" for continues listening with no gui </li>
 <li>Run the corvus_server.py and visit the url to start and stop listening with the press of a button</li>
 </ol>
 
@@ -29,7 +29,6 @@
 <ol>
 <li>Open a terminal </li>
 <li>In terminal, navigate to the directory of the program</li>
-<li>Type "main.py --text" //without quotations</li>
+<li>Type "corvus.py --text" //without quotations</li>
 <li>You are now running the program in text mode</li>
 </ol>
-
