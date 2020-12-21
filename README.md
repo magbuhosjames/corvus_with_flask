@@ -24,7 +24,7 @@
 <li>Run the corvus_server.py and visit the url to start and stop listening with the press of a button</li>
 </ol>
 
-<h3> To run the "main.py" in text mode </h3>
+<h3> To run the "corvus.py" in text mode </h3>
 
 <ol>
 <li>Open a terminal </li>
