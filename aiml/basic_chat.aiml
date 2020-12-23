@@ -153,6 +153,34 @@
         </template>
     </category>
 
+    <category>
+        <pattern>TELL * TIME</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>TELL * DATE</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>TIME *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>DATE *</pattern>
+        <template>
+            <date format="%Y"/>.
+        </template>
+    </category>
+
 <!-- WILDCARD -->
     <category>
     <pattern>*</pattern>

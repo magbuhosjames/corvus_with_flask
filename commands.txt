@@ -1,6 +1,9 @@
 -CORONAVIRUS-
-covid + country --> example: covid cases in philippines
-covid world --> example: covid cases in world
+covid + country --> example: How many covid cases are there in the Philippines?, Covid Cases in the Philippines, #your question must have a 'covid' and a 'country name' word in it
+covid world --> example: How many total cases are there in world?, Covid world, #question must have a 'covid' and 'world' word
+---------
+NOTE: All the term below must be spoken exactly otherwise it won't recognize it. #We haven't added a lot of pattern to recognize every format or form of questions, because it would consume a lot of time. But we make it easier to add a pattern with the use of AIML module in python, the questions were separated and anyone can easily add questions and patterns to the said program with the help of this module.
+---------
 WHAT IS CORONAVIRUS
 WHAT DISEASES ARE CAUSED BY CORONAVIRUS
 WHY DOES CORONAVIRUS CAUSE SHORTNESS OF BREATH
@@ -8,12 +11,13 @@ WHY AND HOW SHOULD I SEEK MEDICAL ATTENTION
 HOW IS CORONAVIRUS TRANSMITTED
 WHAT SHOULD WE DO IF WE ARE INFECTED BY CORONAVIRUS
 HOW DOES THE VIRUS SPREAD
-<!-- other questions will be added soon	-->
+<!-- other questions and patterns will be added soon	-->
 ----
 -TIME-
-what is the time
-time
-tell me the time
+what *  time
+time *
+* time
+(there are only three patterns here) asterisk is equal to anything, so for example, 'What is the time', 'Tell me the time'
 SAME GOES FOR THE DATE --
 ----
 LOCATION
@@ -36,10 +40,8 @@ who made you
 who created corvus
 who is your creator
 
------------
-<!-- SAY ALL THE COMMANDS WITH NEAT VOICE AND EXACT WORDS -->
+--
 updates will be coming soon
-
-Team No
-
+--
+Team No. 3
 
